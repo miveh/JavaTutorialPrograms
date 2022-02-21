@@ -1,30 +1,49 @@
 package com.company;
 
+import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
-    static int n1 = 0, n2 = 1, n3 = 0;
+    static int n1 = 0, n2 = 1, n3 = 0; //for fibonacci method
 
-    static void fibo(int count) {
-        if (count > 0) {
-            n3 = n1 + n2;
-            n1 = n2;
-            n2 = n3;
-            System.out.print(" " + n3);
-            fibo(count - 1);
-        }
-    }
+
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter a string or number: ");
-        String original = in.nextLine();
+        //step7
+
+        //step6
+//        System.out.println("1st Random Number: " + Math.random());
+//        System.out.println("2nd Random Number: " + Math.random());
+//        System.out.println("3rd Random Number: " + Math.random());
+//        System.out.println("4th Random Number: " + Math.random());
+//        Random random = new Random();
+//        int x = random.nextInt(50);
+//        System.out.println(x);
+//        boolean random_bool = ThreadLocalRandom.current().nextBoolean();
+//        System.out.print(random_bool);
 
 
-        System.out.println(original);
-        palindrome(original);
+        //step4 test
+//        String o = "153";
+//        boolean armstrong = isArmStrong(o);
+//        if(armstrong == true)
+//            System.out.println(o+ " is a armstrong.");
+//        else
+//            System.out.println(o+ " is not a armstrong.");
 
-        //        Scanner s = new Scanner(System.in);
+        //step3 test
+//        int fact=1;
+//        fact = factorial(5);
+//        System.out.println(fact);
+
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("Enter a string or number: ");
+//        String original = in.nextLine();
+//        palindrome(original);
+
+        //step2 test
+//        Scanner s = new Scanner(System.in);
 //        System.out.print("Enter a number: ");
 //        int n = s.nextInt();
 //        if (isPrime(n)) {
@@ -33,6 +52,7 @@ public class Main {
 //            System.out.println(n + " not a prime number");
 //        }
 
+        //step1 test
 //       int count = 10;
 //       System.out.print(n1+" "+n2);
 //       fibo(count-2);
@@ -66,4 +86,40 @@ public class Main {
             System.out.println(original+" is not a palindrome number.");
         }
     }
+
+    public static int factorial(int number) {
+        if(number==0)
+            return 1;
+        else
+            return number * factorial(number - 1);
+    }
+
+    static boolean isArmStrong(String number){
+        int plus_perfect=0;
+        System.out.println(number.length());
+
+        for (int i=number.length() -1; i>=0; i--){
+//            System.out.println(number.length());
+            int n = Integer.parseInt(String.valueOf(number.charAt(i)));
+            System.out.print("\n"+n+"\n");
+            plus_perfect = (int) (plus_perfect + Math.pow(n, number.length()));
+            System.out.println(plus_perfect);
+
+        }
+        if (plus_perfect == Integer.parseInt(number))
+            return true;
+        else
+            return false;
+    }
+
+    static void fibo(int count) {
+        if (count > 0) {
+            n3 = n1 + n2;
+            n1 = n2;
+            n2 = n3;
+            System.out.print(" " + n3);
+            fibo(count - 1);
+        }
+    }
+
 }
